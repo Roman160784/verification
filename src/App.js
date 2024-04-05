@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-     gsdgsdfgsd
+     Бот ищет СИ с Госповеркой
      <button onClick={onClose}>Закрыть</button>
      <Form/>
      <button onClick={onToggleButton}>Togle</button>

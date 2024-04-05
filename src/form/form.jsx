@@ -39,10 +39,10 @@ export const Form = () => {
     return (
         <div className={'form'}>
             <h3>Введите параметры поиска</h3>
-            <input onChange={onChangeType} value={type} type="text" placeholder='Тип СИ' />
-            <input onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
-            <input onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства'/>
-            <input onChange={onChangeYear} value={year} type="text" placeholder='Год поверки' />
+            <input className={'input'} onChange={onChangeType} value={type} type="text" placeholder='Тип СИ' />
+            <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
+            <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства'/>
+            <input className={'input'} onChange={onChangeYear} value={year} type="text" placeholder='Год поверки' />
         </div>
     )
 
