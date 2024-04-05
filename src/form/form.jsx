@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './form.css'
 import { useTelegram } from '../useTelegram';
 
@@ -10,9 +10,17 @@ export const Form = () => {
         tg.MainButton.setParams({
             text: 'Поиск'
         })
-    }, )
+    }, [])
 
-    
+  
+
+
+    useEffect(() => {
+        tg.WebApp.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.WebApp.offEvent('mainButtonClicked', onSendData)   
+        }
+    })
 
 
     const [type, setType] = useState('')
@@ -21,7 +29,15 @@ export const Form = () => {
     const [year, setYear] = useState('2024')
 
 
-   
+   const onSendData = useCallback(() => {
+        const data = {
+            type, 
+            numberSi,
+            certif,
+            year,
+        }
+        tg.sendData(JSON.stringify(data))
+    }, [])
 
     const onChangeType = (e) => {
         setType(e.target.value)
