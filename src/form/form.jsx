@@ -10,7 +10,7 @@ export const Form = () => {
         tg.MainButton.setParams({
             text: 'Поиск'
         })
-    }, [])
+    }, [tg.MainButton])
 
   
 
@@ -20,7 +20,7 @@ export const Form = () => {
         return () => {
             tg.WebApp.offEvent('mainButtonClicked', onSendData)   
         }
-    })
+    }, )
 
 
     const [type, setType] = useState('')
@@ -37,7 +37,7 @@ export const Form = () => {
             year,
         }
         tg.sendData(JSON.stringify(data))
-    }, [])
+    }, [certif, numberSi, tg, type, year])
 
     const onChangeType = (e) => {
         setType(e.target.value)
