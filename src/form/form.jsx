@@ -10,7 +10,7 @@ export const Form = () => {
         tg.MainButton.setParams({
             text: 'Поиск'
         })
-    }, [])
+    }, )
 
     
 
