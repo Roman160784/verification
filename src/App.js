@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h3> бот ищет СИ с Госповеркой</h3>
+      <h3> бот ищет СИ с Государственной поверкой</h3>
     
      {/* <button onClick={onClose}>Закрыть</button> */}
      <Form/>
