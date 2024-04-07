@@ -4,6 +4,7 @@ import { useTelegram } from '../useTelegram';
 
 export const Form = () => {
     const [type, setType] = useState('')
+    const [name, setName] = useState('')
     const [numberSi, setNumberSi] = useState('')
     const [certif, setCertif] = useState('')
     const [year, setYear] = useState('2024')
@@ -11,13 +12,14 @@ export const Form = () => {
 
     const onSendData = useCallback(() => {
         const data = {
+            name,
             type, 
             numberSi,
             certif,
             year,
         }
         tg.sendData(JSON.stringify(data))
-    }, [certif, numberSi, tg, type, year])
+    }, [name, certif, numberSi, tg, type, year])
 
 
     useEffect(() => {
@@ -51,10 +53,14 @@ export const Form = () => {
     const onChangeYear = (e) => {
         setYear(e.target.value)
     }
+    const onChangeName = (e) => {
+        setName(e.target.value)
+    }
 
     return (
         <div className={'form'}>
             <h3>{`Введите параметр (параметры) поиска`}</h3>
+            <input className={'input'} onChange={onChangeName} value={name} type="text" placeholder='Наименование CИ' />
             <input className={'input'} onChange={onChangeType} value={type} type="text" placeholder='Тип СИ' />
             <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
             <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства XX-XXXXXX-не обязятельно'/>
