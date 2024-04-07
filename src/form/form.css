@@ -1,19 +1,19 @@
 .form {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     padding: 20px;
     color: blueviolet
 }
 
 .input {
-    width: 50%;
+    width: 100%;
     padding: 10px;
     margin-top: 15px;
 }
 
 .select{
-    width: 50%;
+    width: 100%;
     padding: 10px;
     margin-top: 15px;
 }
