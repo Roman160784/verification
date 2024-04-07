@@ -31,7 +31,7 @@ export const Form = () => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Поиск СИ по Вашем параметрам'
+            text: 'Поиск СИ по Вашим параметрам'
         })
     }, [tg.MainButton])
 
