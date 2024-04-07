@@ -11,13 +11,14 @@ function App() {
 
 
   useEffect(() => {
-    tg.ready()
-  }, [tg])
+    tg.ready();
+}, [tg])
   
 
   return (
     <div className="App">
-     Бот ищет СИ с Госповеркой
+      <h3> Бот ищет СИ с Госповеркой</h3>
+    
      <button onClick={onClose}>Закрыть</button>
      <Form/>
      <button onClick={onToggleButton}>Togle</button>

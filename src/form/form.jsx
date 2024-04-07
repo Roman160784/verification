@@ -3,33 +3,13 @@ import './form.css'
 import { useTelegram } from '../useTelegram';
 
 export const Form = () => {
-
-    const {tg} = useTelegram()
-
-    useEffect(() => {
-        tg.MainButton.setParams({
-            text: 'Поиск'
-        })
-    }, [tg.MainButton])
-
-  
-
-
-    useEffect(() => {
-        tg.WebApp.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.WebApp.offEvent('mainButtonClicked', onSendData)   
-        }
-    }, )
-
-
     const [type, setType] = useState('')
     const [numberSi, setNumberSi] = useState('')
     const [certif, setCertif] = useState('')
     const [year, setYear] = useState('2024')
+    const {tg} = useTelegram()
 
-
-   const onSendData = useCallback(() => {
+    const onSendData = useCallback(() => {
         const data = {
             type, 
             numberSi,
@@ -38,6 +18,28 @@ export const Form = () => {
         }
         tg.sendData(JSON.stringify(data))
     }, [certif, numberSi, tg, type, year])
+
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData, tg])
+
+
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: 'Поиск'
+        })
+    }, [tg.MainButton])
+
+  
+    
+   
+
+   
 
     const onChangeType = (e) => {
         setType(e.target.value)
@@ -58,7 +60,14 @@ export const Form = () => {
             <input className={'input'} onChange={onChangeType} value={type} type="text" placeholder='Тип СИ' />
             <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
             <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства'/>
-            <input className={'input'} onChange={onChangeYear} value={year} type="text" placeholder='Год поверки' />
+            <select onChange={onChangeYear} className={'select'}>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
         </div>
     )
 
