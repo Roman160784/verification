@@ -31,15 +31,13 @@ export const Form = () => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Поиск'
+            text: 'Поиск СИ по Вашем параметрам'
         })
     }, [tg.MainButton])
 
-  
-    
-   
 
-   
+
+
 
     const onChangeType = (e) => {
         setType(e.target.value)
@@ -61,12 +59,12 @@ export const Form = () => {
             <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
             <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства'/>
             <select onChange={onChangeYear} className={'select'}>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option> 
             </select>
         </div>
     )
