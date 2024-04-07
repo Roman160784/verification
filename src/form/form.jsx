@@ -55,9 +55,9 @@ export const Form = () => {
     return (
         <div className={'form'}>
             <h3>Введите параметры поиска</h3>
-            <input className={'input'} onChange={onChangeType} value={type} type="text" placeholder='Тип СИ XX-XXXXXX' />
+            <input className={'input'} onChange={onChangeType} value={type} type="text" placeholder='Тип СИ' />
             <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
-            <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства'/>
+            <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства XX-XXXXXX'/>
             <select onChange={onChangeYear} className={'select'}>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
