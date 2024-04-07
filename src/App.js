@@ -7,7 +7,7 @@ import {Form} from './form/form.jsx'
 
 function App() {
 
-  const {tg, onClose, onToggleButton} = useTelegram()
+  const {tg, onToggleButton} = useTelegram()
 
 
   useEffect(() => {
@@ -19,9 +19,9 @@ function App() {
     <div className="App">
       <h3> Бот ищет СИ с Госповеркой</h3>
     
-     <button onClick={onClose}>Закрыть</button>
+     {/* <button onClick={onClose}>Закрыть</button> */}
      <Form/>
-     <button onClick={onToggleButton}>Togle</button>
+     <button onClick={onToggleButton}>Сохранить</button>
     </div>
   );
 }

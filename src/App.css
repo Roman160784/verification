@@ -8,3 +8,18 @@ body{
     background: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color)
 }
+
+h3{
+    padding-left: 50%;
+}
+
+button{
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 54%;
+    color: blueviolet;
+    background-color: snow;
+}
