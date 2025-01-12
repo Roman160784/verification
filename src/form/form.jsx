@@ -7,7 +7,7 @@ export const Form = () => {
     const [name, setName] = useState('')
     const [numberSi, setNumberSi] = useState('')
     const [certif, setCertif] = useState('')
-    const [year, setYear] = useState('2024')
+    const [year, setYear] = useState('2025')
     const {tg} = useTelegram()
 
     const onSendData = useCallback(() => {
