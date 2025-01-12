@@ -21,7 +21,7 @@ function App() {
     
      {/* <button onClick={onClose}>Закрыть</button> */}
      <Form/>
-     <button onClick={onToggleButton}>Сохранить</button>
+     <button style={{ borderRadius: '10px', border: '2px solid blueviolet' }} onClick={onToggleButton}>Сохранить</button>
     </div>
   );
 }

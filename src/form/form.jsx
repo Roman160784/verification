@@ -65,6 +65,7 @@ export const Form = () => {
             <input className={'input'} onChange={onChangeNumberSi} value={numberSi} type="text" placeholder='Номер СИ' />
             <input className={'input'} onChange={onChangeCertif} value={certif} type="text" placeholder='Номер свидетельства XX-XXXXXX-не обязятельно'/>
             <select onChange={onChangeYear} className={'select'}>
+            <option value="2025">2025</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>

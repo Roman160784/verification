@@ -16,10 +16,14 @@
     width: 100%;
     padding: 10px;
     margin-top: 15px;
+    border-radius: 10px;
+    border: 2px solid blueviolet
 }
 
 .select{
     width: 100%;
     padding: 10px;
     margin-top: 15px;
+    border-radius: 10px;
+    border: 2px solid blueviolet
 }
