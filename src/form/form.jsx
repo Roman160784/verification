@@ -111,7 +111,7 @@ export const Form = ({ formData, onChange }) => {
         onChange={(e) => onChange('certif', e.target.value)}
         value={formData.certif}
         type="text"
-        placeholder="Номер свидетельства XX-XXXXXX-не обязятельно"
+        placeholder="Номер свидетельства XX-XXXXXX-не обязательно"
       />
       <select
         onChange={(e) => onChange('year', e.target.value)}

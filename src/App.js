@@ -44,7 +44,7 @@ function App() {
   });
 
   const handleSearch = useCallback(() => {
-    console.log("Отправляем данные в Telegram:", formData);
+    // console.log("Отправляем данные в Telegram:", formData);
     tg.sendData(JSON.stringify(formData)); // Отправляем данные в Telegram
   }, [formData, tg]);
 
@@ -87,12 +87,17 @@ function App() {
       <Form formData={formData} onChange={handleFormChange} />
 
       {showCancel ? (
+        <div>
         <button
           style={{ borderRadius: '10px', border: '2px solid red', color: 'red', marginLeft: '136px' }}
           onClick={handleCancel}
         >
           Очистить форму
         </button>
+        <div style={{marginLeft: '30px', marginTop: '20px', color: 'blueviolet' }}>
+          Если данные введены правильно, то нажмите кнопку "Поиск СИ по Вашим параметрам" внизу экрана
+          </div>
+        </div>
       ) : (
         <button
           style={{ borderRadius: '10px', border: '2px solid blueviolet', marginLeft: '136px' }}
