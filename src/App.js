@@ -88,14 +88,14 @@ function App() {
 
       {showCancel ? (
         <button
-          style={{ borderRadius: '10px', border: '2px solid red' }}
+          style={{ borderRadius: '10px', border: '2px solid red', color: 'red', marginLeft: '136px' }}
           onClick={handleCancel}
         >
           Очистить форму
         </button>
       ) : (
         <button
-          style={{ borderRadius: '10px', border: '2px solid blueviolet' }}
+          style={{ borderRadius: '10px', border: '2px solid blueviolet', marginLeft: '136px' }}
           onClick={handleSave}
         >
           Сохранить
