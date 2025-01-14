@@ -33,7 +33,7 @@ import { useTelegram } from './useTelegram';
 import { Form } from './form/form.jsx';
 
 function App() {
-  const { tg, onToggleButton } = useTelegram();
+  const { tg } = useTelegram();
   const [showCancel, setShowCancel] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -45,22 +45,19 @@ function App() {
 
   useEffect(() => {
     tg.ready();
-
-    tg.MainButton.setParams({
-      text: 'Поиск СИ по Вашим параметрам'
-    });
-    tg.MainButton.show();
-
-  }, [tg]); 
-
+  }, [tg]);
 
   const handleSave = () => {
     setShowCancel(true);
-    // console.log("Сохраняем данные:", formData);
+    tg.MainButton.setParams({
+      text: 'Поиск СИ по Вашим параметрам',
+    });
+    tg.MainButton.show();
   };
 
   const handleCancel = () => {
     setShowCancel(false);
+    tg.MainButton.hide(); 
     setFormData({
       name: '',
       type: '',
@@ -79,10 +76,9 @@ function App() {
       <h3>бот ищет СИ с Государственной поверкой</h3>
       <Form formData={formData} onChange={handleFormChange} />
 
-      {/* Кнопка находится здесь */}
-      {showCancel ? ( 
+      {showCancel ? (
         <button
-          style={{ borderRadius: '10px', border: '2px solid red', marginLeft: '50px' }}
+          style={{ borderRadius: '10px', border: '2px solid red' }}
           onClick={handleCancel}
         >
           Отмена
