@@ -27,7 +27,7 @@
 // }
 
 // export default App;
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './App.css';
 import { useTelegram } from './useTelegram';
 import { Form } from './form/form.jsx';
@@ -43,9 +43,19 @@ function App() {
     year: '2025',
   });
 
+  const handleSearch = useCallback(() => {
+    console.log("Отправляем данные в Telegram:", formData);
+    tg.sendData(JSON.stringify(formData)); // Отправляем данные в Telegram
+  }, [formData, tg]);
+
   useEffect(() => {
     tg.ready();
-  }, [tg]);
+    tg.onEvent('mainButtonClicked', handleSearch);
+
+    return () => {
+      tg.offEvent('mainButtonClicked', handleSearch);
+    };
+  }, [tg, handleSearch]);
 
   const handleSave = () => {
     setShowCancel(true);
@@ -57,7 +67,7 @@ function App() {
 
   const handleCancel = () => {
     setShowCancel(false);
-    tg.MainButton.hide(); 
+    tg.MainButton.hide();
     setFormData({
       name: '',
       type: '',
@@ -81,7 +91,7 @@ function App() {
           style={{ borderRadius: '10px', border: '2px solid red' }}
           onClick={handleCancel}
         >
-          Отмена
+          Очистить форму
         </button>
       ) : (
         <button
